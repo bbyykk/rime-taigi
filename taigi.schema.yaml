@@ -17,8 +17,7 @@ switches:
     states: [ 半角, 全角 ]
 
 menu:
-  select_keys: ""
-  alternative_select_keys: "qwyzv"
+  alternative_select_keys: "qwyzxv"
 
 engine:
   processors:
@@ -42,25 +41,67 @@ engine:
     - r10n_translator
     - reverse_lookup_translator
   filters:
-    - simplifier
     - uniquifier
 
 speller:
-  alphabet: 'vutsrponmlkjihgfedcba123456789;'
-  initials: vutsrponmlkjihgfedcba
+  alphabet: 'utsrponmlkjihgfedcba123456789'
+  initials: utsrponmlkjihgfedcba
   delimiter: " '"
   algebra:
+    - derive/l/j/
+    - derive/j/l/
+    - derive/ue/e/
+    - derive/e/ue/
+    - derive/ua/u/
+    - derive/u/ua/
 
 translator:
   dictionary: taigi
   prism: blg_taipak
-
-reverse_lookup:
-  dictionary: luna_pinyin
-  prefix: "`"
-  tips: 〔拼音〕
   preedit_format:
-    - xform/([nljqxy])v/$1ü/
+    - xform/a2/á/
+    - xform/a3/à/
+    - xform/a5/â/
+    - xform/a7/ā/
+    - xform/a8/a̍/
+    - xform/a9/a̋/
+    - xform/e2/é/
+    - xform/e3/è/
+    - xform/e5/ê/
+    - xform/e7/ē/
+    - xform/e8/e̍/
+    - xform/e9/e̋/
+    - xform/i2/í/
+    - xform/i3/ì/
+    - xform/i5/î/
+    - xform/i7/ī/
+    - xform/i8/i̍/
+    - xform/i9/i̋/
+    - xform/o2/ó/
+    - xform/o3/ò/
+    - xform/o5/ô/
+    - xform/o7/ō/
+    - xform/o8/o̍/
+    - xform/o9/ő/
+    - xform/u2/ú/
+    - xform/u3/ù/
+    - xform/u5/û/
+    - xform/u7/ū/
+    - xform/u8/u̍/
+    - xform/u9/ű/
+    - xform/m2/ḿ/
+    - xform/m3/m̀/
+    - xform/m5/m̂/
+    - xform/m7/m̄/
+    - xform/m8/m̍/
+    - xform/m9/m̋/
+    - xform/ng2/nǵ/
+    - xform/ng3/ng̀/
+    - xform/ng5/nĝ/
+    - xform/ng7/nḡ/
+    - xform/ng8/ng̍/
+    - xform/ng9/ng̋/
+
 
 punctuator:
   import_preset: default
@@ -68,6 +109,8 @@ punctuator:
 key_binder:
   import_preset: default
   bindings:
+    - { when: has_menu, accept: bracketleft, send: Page_Up }
+    - { when: has_menu, accept: bracketright, send: Page_Down }
 
 recognizer:
   import_preset: default
